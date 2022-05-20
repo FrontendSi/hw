@@ -53,7 +53,9 @@ class App extends React.Component {
 
             ascending = () => {
                 this.setState(this.state.countries.country.sort((a, b) => a.name - b.name));
+
                 
+                console.log('tekstas');
             };
 
 
@@ -83,8 +85,9 @@ class App extends React.Component {
                 
             countries.map((country) => ( 
                     
-                <ul>
-                    { country.name }, 
+    
+            
+            <ul Key={country.name}>
                     { country.region }, 
                     { country.area }
                 </ul>
