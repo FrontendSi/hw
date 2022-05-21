@@ -24,37 +24,43 @@ class App extends React.Component {
 
             };
 
-    
-
             ascending = () => {
-                this.setState(this.state.countries.sort((a, b) => a.name.localeCompare(b.name)));
                 this.setstate({ascending:false});
-                if this.state.ascending === false{
+                if (this.state.ascending === false){
                     this.setstate({ascending:true})
                     } else {
                     this.setstate({ascending:false})
-                    } 
-                    
+                    }  
             };
 
 
             descending = () => {
-                this.setState(this.state.countries.sort((a, b) => b.name.localeCompare(a.name)));
-                this.setstate({descending:true});
+                this.setstate({descending:false});
+                if (this.state.descending === false){
+                    this.setstate({descending:true})
+                    } else {
+                    this.setstate({descending:false})
+                    } 
             };
 
             oceania = () => {
-                this.setState(this.state.countries.filter(region => region.includes('Oceania')));
-                this.setstate({oceania:true});
-              
+                this.setstate({oceania:false});
+                if (this.state.oceania === false){
+                    this.setstate({oceania:true})
+                    } else {
+                    this.setstate({oceania:false})
+                    } 
             };
 
 
             area = () => {
-                this.setState(this.state.countries.filter(countries => countries.area < 65300));
-                 //country.area < 65300
-                 this.setstate({area:true});
-                 
+                this.setstate({area:false});
+                if (this.state.area === false){
+                    this.setstate({area:true})
+                    } else {
+                    this.setstate({area:false})
+                    } 
+                 //country.area < 65300  
             };
 
 
@@ -63,10 +69,28 @@ class App extends React.Component {
         const { dataisLoaded, countries } = this.state;
         if (!dataisLoaded) return <div>
             <h1> Please wait.... </h1> </div> ;
+
         let finallist = this.state.countries;
-        if this.state.ascending {
-            finallist = finallist.sortsort((a, b) => a.name.localeCompare(b.name))
+
+
+        if (this.state.ascending) {
+            finallist = finallist.sortsort((a, b) => a.name.localeCompare(b.name));
         };
+
+        if (this.state.descending) {
+            finallist = finallist.sortsort((a, b) => b.name.localeCompare(a.name));
+            
+        };
+
+        if (this.state.oceania) {
+            finallist = finallist.filter(region => region.includes('Oceania'));
+        };
+
+        if (this.state.area) {
+            finallist = finallist.filter(countries => countries.area < 65300);
+        };
+
+
 
         return (
 
