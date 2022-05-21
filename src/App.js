@@ -40,11 +40,8 @@ class App extends React.Component {
     componentDidMount() {
         fetch("https://restcountries.com/v2/all?fields=name,region,area")
             .then((res) => res.json())
-            .then((json) => {
-                this.setState({
-                    countries: json,
-                    dataisLoaded: true
-                });
+            .then((data) => {
+                this.setState({countries: data, dataisLoaded: true});
             })
 
             };
@@ -52,15 +49,13 @@ class App extends React.Component {
     
 
             ascending = () => {
-                this.setState(this.state.countries.country.sort((a, b) => a.name - b.name));
-
+                this.setState(this.state.countries.sort((a, b) => a.name.localeCompare(b.name)));
                 
-                console.log('tekstas');
             };
 
 
             descending = () => {
-                this.setState(this.state.countries.country.sort((a, b) => b.name - a.name));
+                this.setState(this.state.countries.sort((a, b) => b.name.localeCompare(a.name)));
             };
 
 
@@ -69,7 +64,7 @@ class App extends React.Component {
         const { dataisLoaded, countries } = this.state;
         if (!dataisLoaded) return <div>
             <h1> Please wait.... </h1> </div> ;
-
+        
         return (
 
             
@@ -85,9 +80,8 @@ class App extends React.Component {
                 
             countries.map((country) => ( 
                     
-    
-            
-            <ul Key={country.name}>
+            <ul>    
+                    { country.name },
                     { country.region }, 
                     { country.area }
                 </ul>
