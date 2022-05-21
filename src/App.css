@@ -1,4 +1,5 @@
 .App {
+  padding:1rem 10rem;;
   text-align: center;
 }
 
@@ -43,7 +44,8 @@ ul {
 
 .buttons {
   text-align: left;
-  padding-left: 2.5rem;
+  padding: 2.5rem;
   margin-bottom: 2rem;
-  
+  display: flex;
+  justify-content: space-between;
 }

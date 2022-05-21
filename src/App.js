@@ -1,29 +1,3 @@
-// import logo from './logo.svg';
-// import './App.css';
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           Edit <code>src/App.js</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
-
-// export default App;
-
 import React from "react";
 import './App.css';
 
@@ -41,7 +15,11 @@ class App extends React.Component {
         fetch("https://restcountries.com/v2/all?fields=name,region,area")
             .then((res) => res.json())
             .then((data) => {
-                this.setState({countries: data, dataisLoaded: true});
+                //console.log('TEKSTAS');
+                this.setState({
+                    countries: data, 
+                    dataisLoaded: true
+                });
             })
 
             };
@@ -58,13 +36,24 @@ class App extends React.Component {
                 this.setState(this.state.countries.sort((a, b) => b.name.localeCompare(a.name)));
             };
 
+            oceania = () => {
+                this.setState(this.state.countries.filter(region => region.includes('Oceania')));
+              
+            };
+
+
+            area = () => {
+                this.setState(this.state.countries.filter(countries => countries.area < 65300));
+                 //country.area < 65300
+            };
+
 
 
     render() {
         const { dataisLoaded, countries } = this.state;
         if (!dataisLoaded) return <div>
             <h1> Please wait.... </h1> </div> ;
-        
+
         return (
 
             
@@ -72,9 +61,16 @@ class App extends React.Component {
           
             <h1> Fetch data from the endpoint </h1> 
             <div className = "buttons">
-                <h3>Sort options:</h3>
-                <button onClick={()=>this.ascending()}  id="ascending" >Ascending</button>
-                <button onClick={()=>this.descending()} id="descending" >Descending</button>
+                <div>
+                    <h3>Sort options:</h3>
+                    <button onClick={()=>this.ascending()}  id="ascending" >Ascending</button> 
+                    <button onClick={()=>this.descending()} id="descending" >Descending</button>
+                </div>
+                <div>
+                    <h3>Filter options:</h3>
+                    <button onClick={()=>this.oceania()}  id="oceania" >Oceania region countries</button>
+                    <button onClick={()=>this.area()} id="area" >Area less than Lithuania's area</button>
+                </div>
             </div>
             {
                 
