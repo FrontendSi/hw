@@ -28,16 +28,24 @@ class App extends React.Component {
 
             ascending = () => {
                 this.setState(this.state.countries.sort((a, b) => a.name.localeCompare(b.name)));
-                
+                this.setstate({ascending:false});
+                if this.state.ascending === false{
+                    this.setstate({ascending:true})
+                    } else {
+                    this.setstate({ascending:false})
+                    } 
+                    
             };
 
 
             descending = () => {
                 this.setState(this.state.countries.sort((a, b) => b.name.localeCompare(a.name)));
+                this.setstate({descending:true});
             };
 
             oceania = () => {
                 this.setState(this.state.countries.filter(region => region.includes('Oceania')));
+                this.setstate({oceania:true});
               
             };
 
@@ -45,6 +53,8 @@ class App extends React.Component {
             area = () => {
                 this.setState(this.state.countries.filter(countries => countries.area < 65300));
                  //country.area < 65300
+                 this.setstate({area:true});
+                 
             };
 
 
@@ -53,6 +63,10 @@ class App extends React.Component {
         const { dataisLoaded, countries } = this.state;
         if (!dataisLoaded) return <div>
             <h1> Please wait.... </h1> </div> ;
+        let finallist = this.state.countries;
+        if this.state.ascending {
+            finallist = finallist.sortsort((a, b) => a.name.localeCompare(b.name))
+        };
 
         return (
 
