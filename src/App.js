@@ -25,45 +25,49 @@ class App extends React.Component {
             };
 
             ascending = () => {
-                this.setstate({ascending:false});
-                if (this.state.ascending === false){
-                    this.setstate({ascending:true})
+                console.log('ASCENDING');
+                this.setState({ascending:undefined});
+                if (this.state.ascending === true){
+                    this.setState({ascending:false})
                     } else {
-                    this.setstate({ascending:false})
+                    this.setState({ascending:true})
                     }  
-                    console.log('ASCENDING');
+                    ;
             };
 
 
             descending = () => {
-                this.setstate({descending:false});
-                if (this.state.descending === false){
-                    this.setstate({descending:true})
+                console.log('DESCENDING');
+                this.setState({descending:undefined});
+                if (this.state.descending === true){
+                    this.setState({descending:false})
                     } else {
-                    this.setstate({descending:false})
+                    this.setState({descending:true})
                     } 
-                    console.log('DESCENDING');
+                    
             };
 
             oceania = () => {
-                this.setstate({oceania:false});
-                if (this.state.oceania === false){
-                    this.setstate({oceania:true})
+                console.log('OCEANIA');
+                this.setState({oceania:undefined});
+                if (this.state.oceania === true){
+                    this.setState({oceania:false})
                     } else {
-                    this.setstate({oceania:false})
+                    this.setState({oceania:true})
                     } 
-                    console.log('OCEANIA');
+                    
             };
 
 
             area = () => {
-                this.setstate({area:false});
-                if (this.state.area === false){
-                    this.setstate({area:true})
+                console.log('AREA');
+                this.setState({area:undefined});
+                if (this.state.area === true){
+                    this.setState({area:false})
                     } else {
-                    this.setstate({area:false})
+                    this.setState({area:true})
                     } 
-                    console.log('AREA');
+                    
                  //country.area < 65300  
             };
 
