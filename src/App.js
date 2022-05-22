@@ -31,6 +31,7 @@ class App extends React.Component {
                     } else {
                     this.setstate({ascending:false})
                     }  
+                    console.log('ASCENDING');
             };
 
 
@@ -41,6 +42,7 @@ class App extends React.Component {
                     } else {
                     this.setstate({descending:false})
                     } 
+                    console.log('DESCENDING');
             };
 
             oceania = () => {
@@ -50,6 +52,7 @@ class App extends React.Component {
                     } else {
                     this.setstate({oceania:false})
                     } 
+                    console.log('OCEANIA');
             };
 
 
@@ -60,6 +63,7 @@ class App extends React.Component {
                     } else {
                     this.setstate({area:false})
                     } 
+                    console.log('AREA');
                  //country.area < 65300  
             };
 
