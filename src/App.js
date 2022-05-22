@@ -7,8 +7,20 @@ class App extends React.Component {
   
         this.state = {
             countries: [],
-            dataisLoaded: false
+            dataisLoaded: false,
+            ascending: undefined,
+            decending: undefined,
+            oceania:undefined,
+            area:undefined
         };
+
+        
+        
+        // this.setState({ascending:undefined});
+        // this.setState({descending:undefined});
+        // this.setState({oceania:undefined});
+        // this.setState({area:undefined});
+    
     } 
    
     componentDidMount() {
@@ -18,7 +30,11 @@ class App extends React.Component {
                 //console.log('TEKSTAS');
                 this.setState({
                     countries: data, 
-                    dataisLoaded: true
+                    dataisLoaded: true,
+                    //ascending: false,
+                    //decending: false,
+                    //oceania:false,
+                    //area:false
                 });
             })
 
@@ -26,7 +42,7 @@ class App extends React.Component {
 
             ascending = () => {
                 console.log('ASCENDING');
-                this.setState({ascending:undefined});
+                
                 if (this.state.ascending === true){
                     this.setState({ascending:false})
                     } else {
@@ -38,7 +54,7 @@ class App extends React.Component {
 
             descending = () => {
                 console.log('DESCENDING');
-                this.setState({descending:undefined});
+                
                 if (this.state.descending === true){
                     this.setState({descending:false})
                     } else {
@@ -49,7 +65,7 @@ class App extends React.Component {
 
             oceania = () => {
                 console.log('OCEANIA');
-                this.setState({oceania:undefined});
+                
                 if (this.state.oceania === true){
                     this.setState({oceania:false})
                     } else {
@@ -61,7 +77,7 @@ class App extends React.Component {
 
             area = () => {
                 console.log('AREA');
-                this.setState({area:undefined});
+                
                 if (this.state.area === true){
                     this.setState({area:false})
                     } else {
