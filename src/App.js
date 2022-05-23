@@ -8,10 +8,10 @@ class App extends React.Component {
         this.state = {
             countries: [],
             dataisLoaded: false,
-            ascending: '',
-            descending: '',
-            oceania:'',
-            area:''
+            ascending: false,
+            descending: false,
+            oceania:false,
+            area:false
         };
 
         
@@ -30,11 +30,11 @@ class App extends React.Component {
                 //console.log('TEKSTAS');
                 this.setState({
                     countries: data, 
-                    dataisLoaded: true,
-                    //ascending: false,
-                    //descending: false,
-                    //oceania:false,
-                    //area:false
+                    dataisLoaded: true
+                    // ascending: true,
+                    // descending: true,
+                    // oceania:true,
+                    // area:true
                 });
             })
 
@@ -94,24 +94,25 @@ class App extends React.Component {
         if (!dataisLoaded) return <div>
             <h1> Please wait.... </h1> </div> ;
 
-        let finallist = this.state.countries;
+        let finalList = this.state.countries;
 
+    
 
         if (this.state.ascending) {
-            finallist = finallist.sortsort((a, b) => a.name.localeCompare(b.name));
+            finalList = finalList.sortsort((a, b) => a.name.localeCompare(b.name));
         };
 
         if (this.state.descending) {
-            finallist = finallist.sortsort((a, b) => b.name.localeCompare(a.name));
+            finalList = finalList.sortsort((a, b) => b.name.localeCompare(a.name));
             
         };
 
         if (this.state.oceania) {
-            finallist = finallist.filter(region => region.includes('Oceania'));
+            finalList = finalList.filter(region => region.includes('Oceania'));
         };
 
         if (this.state.area) {
-            finallist = finallist.filter(countries => countries.area < 65300);
+            finalList = finalList.filter(countries => countries.area.value < 65300);
         };
 
 
@@ -134,6 +135,11 @@ class App extends React.Component {
                     <button onClick={()=>this.area()} id="area" >Area less than Lithuania's area</button>
                 </div>
             </div>
+
+            {/* <div>
+                finalList
+            </div> */}
+            
             {
                 
             countries.map((country) => ( 
