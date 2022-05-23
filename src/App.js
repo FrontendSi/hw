@@ -8,10 +8,10 @@ class App extends React.Component {
         this.state = {
             countries: [],
             dataisLoaded: false,
-            ascending: undefined,
-            decending: undefined,
-            oceania:undefined,
-            area:undefined
+            ascending: '',
+            descending: '',
+            oceania:'',
+            area:''
         };
 
         
@@ -32,7 +32,7 @@ class App extends React.Component {
                     countries: data, 
                     dataisLoaded: true,
                     //ascending: false,
-                    //decending: false,
+                    //descending: false,
                     //oceania:false,
                     //area:false
                 });
